@@ -28,6 +28,7 @@ jobs:
         ref:  main
         # REQUIRED if your upstream repo is private (see wiki)
         persist-credentials: false
+        token: ${{ secrets.SYNCSECRET }}
 
     # REQUIRED step
     # Step 2: run the sync action
@@ -40,7 +41,6 @@ jobs:
         target_repo_token: ${{ secrets.SYNCSECRET }}
         upstream_sync_branch: main
         upstream_sync_repo: 7Sageer/sublink-worker
-        upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
 
         # Set test_mode true during manual dispatch to run tests instead of the true action!!
         test_mode: ${{ inputs.sync_test_mode }}
